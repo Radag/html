@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hra Pacman</title>
+	<style>
+		body {
+			background-color: cornflowerblue;
+		}
+		#game-board {
+			width: 800px;
+			height: 400px;
+			background-color: black;
+			border: 1px solid blue;
+			margin: auto;
+			position: relative;
+		}
+		#pacman {
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 185px;
+			left: 385px;
+			z-index: 2;
+		}
+		#points {
+			position: relative;
+			left: 80px;
+			top: 80px;
+			color: darkred;
+			border: 3px solid darkred;
+			font-size: 30px;
+			font-weight: bold;
+			width: 130px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+		}
+		.point {
+			color: white;
+			position: absolute;
+			z-index: 1;
+		}
+		#steps p {
+			margin-top: 40px;
+			font-size: 18px;
+			width: 400px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+</head>
+<body>
+<div id="points">O bodů</div>
+<div id="game-board">
+	<img id="pacman" src="pacman.png">
+</div>
+<script>
+	let gameBoard = document.getElementById("game-board");
+	for(let x = 15; x < 785; x = x + 30) {
+		for(let y = 15; y < 385; y = y + 30) {
+			let box = document.createElement("div");
+			box.setAttribute("class", "point");
+			box.innerText = "*";
+			box.style.top = y + "px";
+			box.style.left = x + "px";
+			gameBoard.append(box);
+		}
+	}
+
+</script>
+<div id="steps">
+	<p>Přidejte listener na keydown a podle toho, která klávesa byl stlačena, změňte pozici Pacmana.</p>
+	<p>Při pohybu Pacmana transformujte obrázek, aby se pacman vždy díval tím směrem, kterým jde.</p>
+	<p>Zajistěte, aby Pacman nemohl opustit hrací plochu.</p>
+	<p>Při pohybu Pacmana kontrolujte, zda nestojí zrovna na nějaké hvězdičce. Pokud ano, tak ji odstraňte.</p>
+	<p>Přidejte počítání bodů, za každou sežranou hvězdičku dostane 1 bod.</p>
+</div>
+
+</body>
+</html>
